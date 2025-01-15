@@ -4,12 +4,10 @@ import EventsList from '../components/EventsList';
 
 function EventsPage() {
     const data = useLoaderData()
-  
-  
+    
   return (
     <>
-      
-    <EventsList events={fetchedEvents} />
+    <EventsList  events={data} />
     </>
   );
 }

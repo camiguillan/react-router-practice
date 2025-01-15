@@ -35,7 +35,7 @@ const route = createBrowserRouter([
       {index: true, element: <HomePage/>},  
       {path:'events', element: <EventsRoot />, children:
         [ {index: true, element: <EventsPage/> , loader: async ()=> {
-          const response = await fetch('http://localhost:8080/events');
+          const response = await fetch('https://stunning-space-memory-w5649qv6ppp2g4pp-8080.app.github.dev/events');
 
           if (!response.ok) {
             //incorrect response 
