@@ -28,24 +28,16 @@ import NewEventPage from './pages/NewEventPage';
 import EditEventPage from './pages/EditEventPage';
 import Root from './pages/Root';
 import EventsRoot from './pages/EventsRoot';
+import { loader } from './pages/EventsPage';
+import Error from './pages/Error';
 
 const route = createBrowserRouter([
   {path: '/' , element: <Root/>,
+    errorElement: <Error/> ,
     children: [
       {index: true, element: <HomePage/>},  
       {path:'events', element: <EventsRoot />, children:
-        [ {index: true, element: <EventsPage/> , loader: async ()=> {
-          const response = await fetch('https://automatic-guacamole-rxvw9p76jjh5w7-8080.app.github.dev/events');
-
-          if (!response.ok) {
-            //incorrect response 
-          } else {
-            const resData = await response.json();
-            return resData.events
-            
-          }
-
-        }  },
+        [ {index: true, element: <EventsPage/> , loader: loader },
           {path: ':id', element: <EventDetailPage/> },
           {path:'new'   , element: <NewEventPage/> },
           {path:':id/edit' , element:<EditEventPage/>  } ]
