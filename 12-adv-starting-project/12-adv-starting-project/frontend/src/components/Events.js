@@ -10,7 +10,8 @@ function EventsPage() {
   useEffect(() => {
     async function fetchEvents( ) {
       setIsLoading(true);
-      const response = await fetch('http://localhost:8080/events');
+      const response = 
+      await fetch('https://automatic-guacamole-rxvw9p76jjh5w7-8080.app.github.dev/events');
 
       if (!response.ok) {
         setError('Fetching events failed.');
