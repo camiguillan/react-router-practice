@@ -7,10 +7,10 @@ function EventsNavigation() {
       <nav>
         <ul className={classes.list}>
           <li>
-            <NavLink href="/events" className={({active}) => active? classes.active : undefined } end >All Events</NavLink>
+            <NavLink to="/events" className={({active}) => active? classes.active : undefined } end >All Events</NavLink>
           </li>
           <li>
-            <NavLink href="/events/new"  className={({active}) => active? classes.active : undefined } >New Event</NavLink>
+            <NavLink to="/events/new"  className={({active}) => active? classes.active : undefined } >New Event</NavLink>
           </li>
         </ul>
       </nav>

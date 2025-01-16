@@ -29,7 +29,7 @@ export async    function loader(){
               //   message: 'Could not fetch the data'
               // }
               throw json({message: 'Not able to fetch events'}, {status: 500}) 
-              new Response(JSON.stringify({message: 'Not able to fetch events'}), {status: 500})
+              // new Response(JSON.stringify({message: 'Not able to fetch events'}), {status: 500})
           } else {
             const resData = await response.json();
             return resData
