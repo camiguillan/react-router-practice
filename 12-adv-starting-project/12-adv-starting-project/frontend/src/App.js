@@ -30,6 +30,7 @@ import Root from './pages/Root';
 import EventsRoot from './pages/EventsRoot';
 import { loader } from './pages/EventsPage';
 import Error from './pages/Error';
+import { eventDetailLoader } from './pages/EventDetailPage';
 
 const route = createBrowserRouter([
   {path: '/' , element: <Root/>,
@@ -38,9 +39,18 @@ const route = createBrowserRouter([
       {index: true, element: <HomePage/>},  
       {path:'events', element: <EventsRoot />, children:
         [ {index: true, element: <EventsPage/> , loader: loader },
-          {path: ':id', element: <EventDetailPage/> },
+          // {path: ':id', element: <EventDetailPage/>, loader: eventDetailLoader },
           {path:'new'   , element: <NewEventPage/> },
-          {path:':id/edit' , element:<EditEventPage/>  } ]
+          {path: ':id', 
+            id: 'eventDetail',
+            children:[
+            {pindex: true, element: <EventDetailPage/>,},
+            {path:'edit' , element:<EditEventPage/>},
+          ],
+          loader: eventDetailLoader
+        }
+
+        ] 
        }
       
     ]
